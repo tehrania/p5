@@ -14,7 +14,7 @@ get '/events/new' do
 end
 
 post '/events/create' do
-
 event = Event.create(params)
-p event.errors.messages
+p @errors = event.errors.messages
+erb :create_event
 end
