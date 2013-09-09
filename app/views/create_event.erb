@@ -1,19 +1,22 @@
 <form method="post" action="/events/create" class="create">
 
 <% if @errors %>
-  <%=@errors[:title][0] %>
+  <%=@errors[:title][0] if @errors[:title] %>
   <% end %>
   <input type="text" name="title" placeholder="Title">
   <% if @errors %>
-  <%=@errors[:organizer_name][0] %>
+  <%=@errors[:organizer_name][0] if @errors[:organizer_name] %>
   <% end %>
   <input type="text" name ="organizer_name" placeholder="Organizer name">
   <% if @errors %>
-  <%=@errors[:organizer_email][0] %>
+  <%=@errors[:organizer_email][0] if @errors[:organizer_email] %>
   <% end %>
   <input type="text" name="organizer_email" placeholder="Organizer email">
     <% if @errors %>
-  <%=@errors[:date][0] %>
+  <%=@errors[:date][0] if @errors[:date] %>
+  <% end %>
+    <% if @errors %>
+  <%=@errors[:date][1] if @errors[:date] %>
   <% end %>
   <input type="text" name="date" placeholder="Date">
     <input type="submit">
